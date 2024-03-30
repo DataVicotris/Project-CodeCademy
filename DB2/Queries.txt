@@ -1,0 +1,69 @@
+INSERT INTO Certificate (Beoordeling, Ondertekenaar, Cursist, Cursus, GeslachtCursist) VALUES ('%d', '%s','%s','%s','%s');
+
+SELECT * FROM Certificate;
+
+SELECT (SELECT COUNT (*) FROM Certificate WHERE Beoordeling > 5 AND GeslachtCursist = 'Vrouw') * 100 / (select COUNT (*) FROM Certificate) As Percentage FROM Certificate;
+
+SELECT (SELECT COUNT (*) FROM Certificate WHERE Beoordeling > 5 AND GeslachtCursist = 'Man') * 100 / (SELECT COUNT (*) FROM Certificate) As Percentage FROM Certificate
+
+UPDATE Certificate SET Beoordeling = '%d', Ondertekenaar = '%s' WHERE CertificaatID = %d;
+
+INSERT INTO Cursist (CursistEmail, Naam, Geboortedatum, Geslacht, Adres, Stad, Land, postcode) VALUES ('%s', '%s', '%s','%s','%s','%s','%s','%s')
+
+SELECT * FROM Cursist
+
+SELECT * FROM Cursist WHERE CursistEmail = '%s'
+
+SELECT * FROM Cursist WHERE CursistID = %d
+
+SELECT * FROM Cursist WHERE CursistEmail = '%s'
+
+UPDATE Cursist SET CursistEmail = '%s', Naam = '%s', Geboortedatum = '%s', Geslacht = '%s', Adres = '%s’, Stad = '%s', Land = '%s', postcode = '%s' WHERE CursistID = %d;
+
+DELETE FROM Cursist WHERE CursistID = %d; SELECT * FROM Cursist;
+
+INSERT INTO Cursussen (CursusNaam, Onderwerp, IntroductieTekst, Niveau, WebCastTitel, ModuleTitel) VALUES ('%s', '%s', '%s','%s','%s','%s')
+
+SELECT * FROM Cursussen
+
+SELECT TOP 3 CursusNaam, Niveau FROM Cursussen
+
+SELECT * FROM Cursussen
+
+SELECT * FROM Cursussen WHERE VolgNummer = %d
+
+UPDATE Cursussen SET CursusNaam = '%s', IntroductieTekst = '%s', Niveau = '%s', WebcastTitel = '%s', ModuleTitel = '%s', Onderwerp = '%s' WHERE VolgNummer = %d;
+
+DELETE FROM Cursussen WHERE Volgnummer = %d; SELECT * FROM Cursussen;
+INSERT INTO Inschrijvingen (CursistEmail, CursusNaam, RegistratieDatum) VALUES ('%s','%s','%s')
+
+SELECT * FROM Inschrijvingen
+
+SELECT * FROM Inschrijvingen WHERE InschrijvingID = %d
+
+UPDATE Cursist SET CursistEmail = '%s', Naam = '%s', Geboortedatum = '%s', Geslacht = '%s', Adres = '%s’, Stad = '%s', Land = '%s', postcode = '%s' WHERE CursistID = %d;
+
+DELETE FROM Inschrijvingen WHERE InschrijvingID = %d; SELECT * FROM Inschrijvingen;
+
+INSERT INTO Modules (Titel, Versie, Beschrijving, ContactNaam, ContactEmail) VALUES ('%s', '%s', '%s','%s','%s')
+
+SELECT * FROM Modules
+
+SELECT * FROM Modules WHERE ContentItemID = %d
+
+UPDATE Modules SET Titel = '%s', Versie = '%s', Beschrijving = '%s', ContactNaam = '%s', ContactEmail = '%s' WHERE ContentItemID = %d;
+
+DELETE FROM Modules WHERE ContentItemID = %d; SELECT * FROM Modules;
+
+INSERT INTO Webcasts (Tijdsduur, Url, Spreker, Organisatie, Titel, DatumPublicatie, Beschrijving) VALUES ('%s', '%s', '%s','%s','%s','%s','%s')
+
+SELECT * FROM Webcasts
+
+SELECT TOP 3 Titel, Spreker FROM Webcasts
+
+SELECT * FROM Webcasts WHERE ContentItemID = %d
+
+UPDATE Webcasts SET Spreker = '%s', Url = '%s', Organisatie = '%s', Titel = '%s', Tijdsduur = '%d’, DatumPublicatie = '%s', Beschrijving = '%s' WHERE ContentItemID = %d;
+
+DELETE FROM Webcasts WHERE ContentItemID = %d; SELECT * FROM Webcasts;
+
